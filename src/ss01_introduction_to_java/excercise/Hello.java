@@ -1,8 +1,8 @@
-package ss01.baitap;
+package ss01_introduction_to_java.excercise;
 
 import java.util.Scanner;
 
-public class SystemTime {
+public class Hello {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your name");
