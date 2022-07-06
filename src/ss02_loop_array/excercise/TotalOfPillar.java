@@ -16,8 +16,8 @@ public class TotalOfPillar {
                 array2d[i][j] = Math.random() * 100;
             }
         }
-        for (int i = 0; i < array2d.length; i++) {
-            System.out.print(Arrays.toString(array2d[i]));
+        for (double[] doubles : array2d) {
+            System.out.print(Arrays.toString(doubles));
             System.out.println();
         }
         int number;
