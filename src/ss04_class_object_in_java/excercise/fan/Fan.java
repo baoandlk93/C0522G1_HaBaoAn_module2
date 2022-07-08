@@ -75,10 +75,9 @@ public class Fan {
     @Override
     public String toString() {
         return "Fan{" +
-                "status=" + status +
-                ", speed=" + speed +
-                ", color='" + color + '\'' +
-                ", radius=" + radius +
+                " speed = " + speed +
+                ", color = '" + color + '\'' +
+                ", radius = " + radius +
                 '}';
     }
 }
