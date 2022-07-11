@@ -40,6 +40,6 @@ public class Poin2D {
 
     @Override
     public String toString() {
-        return "x = " + getX() +  ", y = " + getY();
+        return "x = " + getX() + ", y = " + getY();
     }
 }

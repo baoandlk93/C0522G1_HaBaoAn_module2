@@ -7,7 +7,7 @@ public class PointController {
         Point point = new Point();
         System.out.println(point);
 
-        Point point1 = new Point(10,7);
+        Point point1 = new Point(10, 7);
         System.out.println(point1);
 
     }

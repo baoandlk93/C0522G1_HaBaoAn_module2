@@ -20,7 +20,7 @@ public class Cylinder extends Circle {
     @Override
     public String toString() {
         return "Cylinder {" +
-                "Chiều cao = " + height +" "+
+                "Chiều cao = " + height + " " +
                 "Thể tích =  " + getVolume() +
                 '}';
     }

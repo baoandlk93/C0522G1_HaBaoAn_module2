@@ -9,7 +9,7 @@ public class Point2DController {
         Poin2D poin2D = new Poin2D();
         System.out.println(poin2D);
 
-        Poin2D poin2D1 = new Poin2D(5,6);
+        Poin2D poin2D1 = new Poin2D(5, 6);
         System.out.println(poin2D1);
 
         float[] array = poin2D1.getXY();
