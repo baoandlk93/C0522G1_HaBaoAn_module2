@@ -1,6 +1,6 @@
 package ss07_abstract_class_amp_interface_edible.excercise.interface_colorable.controller;
 
-import ss07_abstract_class_amp_interface_edible.excercise.interface_colorable.servvice.Colorable;
+import ss07_abstract_class_amp_interface_edible.excercise.interface_colorable.service.Colorable;
 import ss07_abstract_class_amp_interface_edible.excercise.resizeable.model.Rectangle;
 
 public abstract class RectangleTest implements Colorable {
