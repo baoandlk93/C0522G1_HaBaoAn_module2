@@ -8,6 +8,13 @@ public class MyListService<E> {
     public Object[] elements;
 
 
+    public MyListService(){
+        elements = new Object[DEFAULT_CAPACITY];
+    }
+
+    public MyListService(int capacity){
+        elements = new Object[capacity];
+    }
     public boolean add(E e) {
         elements[size] = e;
         size++;
