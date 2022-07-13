@@ -1,6 +1,7 @@
 package ss08_clean_code.excercise.controller;
 
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
@@ -90,5 +91,17 @@ public class TennisGameTest {
                 { 16, 14, "Win for player1"},
                 { 14, 16, "Win for player2"},
         });
+    }
+
+    @Test
+    public void getScore() {
+    }
+
+    @Test
+    public void getMinusResult() {
+    }
+
+    @Test
+    public void getTempScore() {
     }
 }

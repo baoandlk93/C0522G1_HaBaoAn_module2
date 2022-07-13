@@ -3,7 +3,7 @@ package ss07_abstract_class_amp_interface_edible.excercise.interface_colorable.m
 
 import ss07_abstract_class_amp_interface_edible.excercise.interface_colorable.service.Colorable;
 
-public class Rectangle extends Shape implements Colorable {
+public class Rectangle extends Shape  {
     private double width = 1.0;
     private double length = 1.0;
 

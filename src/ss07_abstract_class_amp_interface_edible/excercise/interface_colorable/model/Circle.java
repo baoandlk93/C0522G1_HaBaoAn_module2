@@ -2,7 +2,7 @@ package ss07_abstract_class_amp_interface_edible.excercise.interface_colorable.m
 
 import ss07_abstract_class_amp_interface_edible.excercise.interface_colorable.service.Colorable;
 
-public class Circle extends Shape implements Colorable {
+public class Circle extends Shape  {
     private double radius = 1.0;
 
     public Circle() {
