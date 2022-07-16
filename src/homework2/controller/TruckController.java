@@ -3,7 +3,7 @@ package homework2.controller;
 import java.util.Scanner;
 
 public class TruckController {
-    public static void menuMotobike() {
+    public static void menuTruck() {
         Scanner scanner = new Scanner(System.in);
         do {
             System.out.println("1. Thêm mới phương tiện \n" +

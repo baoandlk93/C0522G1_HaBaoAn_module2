@@ -1,6 +1,6 @@
 package homework2.model;
 
-public abstract class Vehical {
+public class Vehical {
     private int licensePlate;
     private String manufacturer;
     private int yearOfManufacture;

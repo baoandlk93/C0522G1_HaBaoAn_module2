@@ -2,10 +2,9 @@ package homework2.controller;
 
 import java.util.Scanner;
 
-import static homework2.controller.MotorbikeController.menuMotobike;
 
 public class MainController {
-    public static void main(String[] args) {
+    public static void mainController() {
         Scanner scanner = new Scanner(System.in);
         do {
             System.out.println("Chào mừng bạn đến với Hệ thống quản lý phương tiện giao thông \n" +
@@ -18,9 +17,16 @@ public class MainController {
             switch (choose) {
                 case 1:
                     MotorbikeController motorbikeController = new MotorbikeController();
-                    menuMotobike();
+                   motorbikeController.menuMotobike();
+                    break;
                 case 2:
+                    CarsController carsController = new CarsController();
+                    carsController.menuCars();
+                    break;
                 case 3:
+                    TruckController truckController = new TruckController();
+                    truckController.menuTruck();
+                    break;
                 case 4:
                     System.exit(1);
             }

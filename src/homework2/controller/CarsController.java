@@ -1,9 +1,14 @@
 package homework2.controller;
 
+import homework2.service.IVehicalService;
+import homework2.service.impl.CarsService;
+
 import java.util.Scanner;
 
 public class CarsController {
-    public static void menuMotobike() {
+
+    public static void menuCars() {
+        IVehicalService iCarsService = new CarsService();
         Scanner scanner = new Scanner(System.in);
         do {
             System.out.println("1. Thêm mới phương tiện \n" +
@@ -14,9 +19,17 @@ public class CarsController {
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
                 case 1:
+                    iCarsService.add();
+                    break;
                 case 2:
+                    iCarsService.remove();
+                    break;
                 case 3:
+                    iCarsService.display();
+                    break;
                 case 4:
+                    iCarsService.search();
+                    break;
                 case 5:
                     return;
             }
