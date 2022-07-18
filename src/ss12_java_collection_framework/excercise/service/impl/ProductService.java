@@ -9,8 +9,18 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class ProductService implements IProductService {
-    ArrayList<Product> productArrayList = new ArrayList<>();
+   static ArrayList<Product> productArrayList = new ArrayList<>();
     public static Scanner scanner = new Scanner(System.in);
+
+    static {
+        productArrayList.add(new Product("1","Đồ chơi","Không có gì",10000));
+        productArrayList.add(new Product("2","Đồ chơi","Không có gì",11000));
+        productArrayList.add(new Product("3","Đồ chơi","Không có gì",12000));
+        productArrayList.add(new Product("4","Đồ chơi","Không có gì",13000));
+        productArrayList.add(new Product("5","Đồ chơi","Không có gì",14000));
+        productArrayList.add(new Product("6","Đồ chơi","Không có gì",16000));
+        productArrayList.add(new Product("7","Đồ chơi","Không có gì",100000));
+    }
 
     @Override
     public void add() {
@@ -95,11 +105,23 @@ public class ProductService implements IProductService {
                 "2. Giảm dần");
         int choose = Integer.parseInt(scanner.nextLine());
         if (choose ==1){
-            ComparatorAscending comparatorAscending = new ComparatorAscending();
-            productArrayList.sort(comparatorAscending);
+//            ComparatorAscending comparatorAscending = new ComparatorAscending();
+//            productArrayList.sort(comparatorAscending);
+            productArrayList.sort(new Comparator<Product>() {
+                @Override
+                public int compare(Product o1, Product o2) {
+                    return o1.getPrice() - o2.getPrice();
+                }
+            });
         }else {
-            ComparatorDecrease comparatorDecrease = new ComparatorDecrease();
-            productArrayList.sort(comparatorDecrease);
+//            ComparatorDecrease comparatorDecrease = new ComparatorDecrease();
+//            productArrayList.sort(comparatorDecrease);
+            productArrayList.sort(new Comparator<Product>() {
+                @Override
+                public int compare(Product o1, Product o2) {
+                    return o2.getPrice() - o1.getPrice();
+                }
+            });
         }
     }
 

@@ -1,6 +1,6 @@
 package ss12_java_collection_framework.excercise.model;
 
-public class Product {
+public class Product implements Comparable<Product>{
     private String productCode;
     private String productName;
     private String productInfo;
@@ -57,4 +57,9 @@ public class Product {
                 ", Giá sản phẩm: "+ getPrice();
     }
 
+    @Override
+    public int compareTo(Product o) {
+        return getPrice()-o.getPrice();
+
+    }
 }
