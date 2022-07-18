@@ -105,8 +105,6 @@ public class ProductService implements IProductService {
                 "2. Giảm dần");
         int choose = Integer.parseInt(scanner.nextLine());
         if (choose ==1){
-//            ComparatorAscending comparatorAscending = new ComparatorAscending();
-//            productArrayList.sort(comparatorAscending);
             productArrayList.sort(new Comparator<Product>() {
                 @Override
                 public int compare(Product o1, Product o2) {
@@ -114,8 +112,6 @@ public class ProductService implements IProductService {
                 }
             });
         }else {
-//            ComparatorDecrease comparatorDecrease = new ComparatorDecrease();
-//            productArrayList.sort(comparatorDecrease);
             productArrayList.sort(new Comparator<Product>() {
                 @Override
                 public int compare(Product o1, Product o2) {
