@@ -33,4 +33,10 @@ public class Cars extends Vehical{
     public void setSeats(int seats) {
         this.seats = seats;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Kiểu xe " + vehicalType +
+                ", Số ghế " + seats;
+    }
 }

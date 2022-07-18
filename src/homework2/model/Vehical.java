@@ -47,4 +47,13 @@ public class Vehical {
     public void setOwner(String owner) {
         this.owner = owner;
     }
+
+    @Override
+    public String toString() {
+        return
+                " Biển số xe " + licensePlate +
+                ", Hãng sản xuất  " + manufacturer +
+                ", Năm sản xuất " + yearOfManufacture +
+                ", Chủ sở hữu " + owner;
+    }
 }

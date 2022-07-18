@@ -2,13 +2,14 @@ package homework2.controller;
 
 import homework2.service.IVehicalService;
 import homework2.service.impl.CarsService;
+import homework2.service.impl.VehicalService;
 
 import java.util.Scanner;
 
 public class CarsController {
 
     public static void menuCars() {
-        IVehicalService iCarsService = new CarsService();
+        IVehicalService iCarsService = new VehicalService();
         Scanner scanner = new Scanner(System.in);
         do {
             System.out.println("1. Thêm mới phương tiện \n" +
