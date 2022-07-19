@@ -6,6 +6,7 @@ import homework1.service.IStudenService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class StudentService implements IStudenService {
@@ -98,10 +99,10 @@ public class StudentService implements IStudenService {
         String nameSearch = scanner.nextLine();
         boolean isFlag = false;
         for (Student str : studentList){
-            if (str.getName().contains(nameSearch)){
+            if (str.getName().toLowerCase().contains(nameSearch.toLowerCase())){
                 System.out.println(str);
                 isFlag = true;
-            } 
+            }
         }
         if (!isFlag){
             System.out.println("Không tìm thấy");
