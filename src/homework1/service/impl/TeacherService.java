@@ -64,7 +64,5 @@ public class TeacherService implements IPersonService {
             System.out.println(teacher);
         }
     }
-
-
 }
 

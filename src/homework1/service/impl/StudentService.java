@@ -2,14 +2,26 @@ package homework1.service.impl;
 
 import homework1.model.Student;
 import homework1.service.IPersonService;
+import homework1.service.IStudenService;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class StudentService implements IPersonService {
+public class StudentService implements IStudenService {
    private static  Scanner scanner = new Scanner(System.in);
     private static List<Student> studentList = new ArrayList<>();
+
+    static {
+        studentList.add(new Student(1,"Bùi Nam","1990","Nam","C0522g1",9));
+        studentList.add(new Student(2,"Trần Hoàng","1991","Nam","C0522g1",8));
+        studentList.add(new Student(3,"Lý Thị Hoa","1992","Nữ","C0522g1",7));
+        studentList.add(new Student(4,"Trần Văn Nam","1993","Nam","C0522g1",6));
+        studentList.add(new Student(5,"Hoàng Xuân Nam","1994","Nữ","C0522g1",5));
+        studentList.add(new Student(6,"Vũ Tiến Nam","1995","Nam","C0522g1",4));
+        studentList.add(new Student(7,"ĐỖ Hoàng","1996","Nam","C0522g1",3));
+    }
+
 
     public static Student infoStudent() {
         System.out.print("Nhập id: ");
@@ -65,6 +77,34 @@ public class StudentService implements IPersonService {
     public void display() {
         for (Student student:studentList){
             System.out.println(student);
+        }
+    }
+
+
+    @Override
+    public void searchPersonById(){
+        System.out.println("Nhập vào mã sinh viên cần tìm" );
+        int idSearch = Integer.parseInt(scanner.nextLine());
+        for (Student str:studentList){
+            if (idSearch==str.getId()){
+                System.out.println(str);
+            }
+        }
+    }
+
+    @Override
+    public void searchPersonByName() {
+        System.out.println("Nhập vào tên sinh viên cần tìm");
+        String nameSearch = scanner.nextLine();
+        boolean isFlag = false;
+        for (Student str : studentList){
+            if (str.getName().contains(nameSearch)){
+                System.out.println(str);
+                isFlag = true;
+            } 
+        }
+        if (!isFlag){
+            System.out.println("Không tìm thấy");
         }
     }
 
