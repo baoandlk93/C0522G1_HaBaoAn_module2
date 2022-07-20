@@ -3,6 +3,7 @@ package homework1.service.impl;
 import homework1.service.IPersonService;
 import ss10_dsa_list.excercise.method_arraylist.model.Person;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class PersonService implements IPersonService {
@@ -19,6 +20,11 @@ public class PersonService implements IPersonService {
 
     @Override
     public void display() {
+
+    }
+
+    @Override
+    public void sortByName() {
 
     }
 

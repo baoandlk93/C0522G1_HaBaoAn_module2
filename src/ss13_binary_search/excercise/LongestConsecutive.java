@@ -28,6 +28,5 @@ public class LongestConsecutive {
         for (Character ch :max){
             System.out.print(ch);
         }
-        System.out.println();
     }
 }

@@ -1,5 +1,7 @@
 package homework1.service;
 
+import java.util.List;
+
 public interface IPersonService<E> {
     void add();
 
@@ -7,5 +9,5 @@ public interface IPersonService<E> {
 
     void display();
 
-
+    void sortByName();
 }
