@@ -1,7 +1,7 @@
 package ss14_bubble_sort.excercise.insert_sort.controller;
 
 import ss14_bubble_sort.excercise.insert_sort.model.InsertSort;
-import ss14_bubble_sort.excercise.insert_sort_by_step.model.InsertSotByStep;
+
 
 import java.util.Arrays;
 import java.util.Scanner;

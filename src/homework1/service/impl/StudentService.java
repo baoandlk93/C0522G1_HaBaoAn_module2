@@ -1,5 +1,6 @@
 package homework1.service.impl;
 
+import homework1.exception.DuplicateIDException;
 import homework1.model.Student;
 
 import homework1.service.IStudenService;
@@ -23,17 +24,47 @@ public class StudentService implements IStudenService {
 
     public static Student infoStudent() {
         System.out.print("Nhập id: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id = 0;
+        while (true) {
+            try {
+                id = Integer.parseInt(scanner.nextLine());
+                System.out.println("ID : " + id);
+                for (Student student:studentList){
+                    if (student.getId()==id){
+                        throw new DuplicateIDException("ID đã có,vui lòng nhập lại");
+                    }
+                }
+                break;
+            } catch (NumberFormatException e ) {
+                System.out.println("Bạn có chắc mình nhập đúng,hãy nhập lại");
+            }
+            catch (DuplicateIDException e){
+                System.out.println(e.getMessage());
+            }
+        }
         System.out.print("Nhập name: ");
         String name = scanner.nextLine();
+        System.out.println("Tên sinh viên: " + name);
         System.out.print("Nhập ngày sinh: ");
         String dayOfBirth = scanner.nextLine();
+        System.out.println("Ngày sinh: " + dayOfBirth);
         System.out.println("Nhập vào giới tính");
         String gender = scanner.nextLine();
+        System.out.println("Giới tính : " + gender);
         System.out.print("Nhập điểm: ");
-        double score = Integer.parseInt(scanner.nextLine());
+        double score = 0.0;
+        while (true) {
+            try {
+                score = Double.parseDouble(scanner.nextLine());
+                System.out.println("Điểm: " + score);
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Bạn có chắc mình nhập đúng,hãy nhập lại");
+            }
+        }
         System.out.print("Nhập tên Lớp: ");
         String className = scanner.nextLine();
+        System.out.println("Lớp: " + className);
         return new Student(id, name, dayOfBirth, gender, className, score);
     }
 
@@ -47,25 +78,33 @@ public class StudentService implements IStudenService {
     @Override
     public void remove() {
         System.out.println("Mời bạn nhập ID cần xóa");
-        int idRemove = Integer.parseInt(scanner.nextLine());
-        boolean isFlag = false;
-        for (Student student : studentList) {
-            if (student.getId() == idRemove) {
-                System.out.println(" Bạn có chắc muốn xóa hay không? \n" +
-                        "1. Có \n" +
-                        "2. Không");
-                int chooseYesNo = Integer.parseInt(scanner.nextLine());
-                if (chooseYesNo == 1) {
-                    studentList.remove(student);
-                    System.out.println("Xóa thành công!.");
-                }
-                isFlag = true;
-                break;
+        int idRemove = 0;
+        while (true) {
+            try {
+                idRemove = Integer.parseInt(scanner.nextLine());
+                boolean isFlag = false;
+                for (Student student : studentList) {
+                    if (student.getId() == idRemove) {
+                        System.out.println(" Bạn có chắc muốn xóa hay không? \n" +
+                                "1. Có \n" +
+                                "2. Không");
+                        int chooseYesNo = Integer.parseInt(scanner.nextLine());
+                        if (chooseYesNo == 1) {
+                            studentList.remove(student);
+                            System.out.println("Xóa thành công!.");
+                        }
+                        isFlag = true;
+                        break;
 
+                    }
+                }
+                if (!isFlag) {
+                    System.out.println("Không tìm thấy");
+                }
+                return;
+            } catch (NumberFormatException e) {
+                System.out.println("Bạn có chắc mình nhập đúng ID");
             }
-        }
-        if (!isFlag) {
-            System.out.println("Không tìm thấy");
         }
     }
 
@@ -100,10 +139,18 @@ public class StudentService implements IStudenService {
     @Override
     public void searchPersonById() {
         System.out.println("Nhập vào mã sinh viên cần tìm");
-        int idSearch = Integer.parseInt(scanner.nextLine());
-        for (Student str : studentList) {
-            if (idSearch == str.getId()) {
-                System.out.println(str);
+        int idSearch = 0;
+        while (true) {
+            try {
+                idSearch = Integer.parseInt(scanner.nextLine());
+                for (Student str : studentList) {
+                    if (idSearch == str.getId()) {
+                        System.out.println(str);
+                    }
+                }
+                return;
+            } catch (NumberFormatException e) {
+                System.out.println("Bạn nhập sai rồi, xin nhập lại");
             }
         }
     }
