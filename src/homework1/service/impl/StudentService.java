@@ -29,16 +29,15 @@ public class StudentService implements IStudenService {
             try {
                 id = Integer.parseInt(scanner.nextLine());
                 System.out.println("ID : " + id);
-                for (Student student:studentList){
-                    if (student.getId()==id){
+                for (Student student : studentList) {
+                    if (student.getId() == id) {
                         throw new DuplicateIDException("ID đã có,vui lòng nhập lại");
                     }
                 }
                 break;
-            } catch (NumberFormatException e ) {
+            } catch (NumberFormatException e) {
                 System.out.println("Bạn có chắc mình nhập đúng,hãy nhập lại");
-            }
-            catch (DuplicateIDException e){
+            } catch (DuplicateIDException e) {
                 System.out.println(e.getMessage());
             }
         }
