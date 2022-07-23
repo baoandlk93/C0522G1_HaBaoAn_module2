@@ -9,18 +9,22 @@ import java.io.IOException;
 import java.util.List;
 
 public class WriteFileUtils {
-    private static void writeFile(String path, String data) throws IOException {
-        File file = new File(path);
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
-        bufferedWriter.write(data);
-        bufferedWriter.close();
+    private static void writeFile(String path, String data) {
+        try {
+            File file = new File(path);
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
+            bufferedWriter.write(data);
+            bufferedWriter.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
-    public static void writeStudentFile(String path, List<Student> list) throws IOException {
-        String data = "";
+    public static void writeStudentFile(String path, List<Student> list)  {
+        StringBuilder data = new StringBuilder();
         for (Student student : list) {
-            data += student.getInfo();
+            data.append(student.getInfo());
         }
-        writeFile(path, data);
+        writeFile(path, data.toString());
     }
 }

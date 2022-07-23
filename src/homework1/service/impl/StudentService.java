@@ -7,37 +7,27 @@ import homework1.service.IStudenService;
 import homework1.utils.ReadFileUtils;
 import homework1.utils.WriteFileUtils;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.*;
 
-public class StudentService  implements IStudenService {
+public class StudentService implements IStudenService {
     private static Scanner scanner = new Scanner(System.in);
-    private static final String PATH ="src/homework1/list_file/person.csv";
-    private static List<Student> studentList;
+    private static final String PATH = "src/homework1/list_file/person.csv";
+    private static List<Student> studentList = new ArrayList<>();
 
-    static {
-        try {
-            studentList = ReadFileUtils.readStudenList(PATH);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static void readFile() {
+        List<Student> list = ReadFileUtils.readStudenList(PATH);
+        studentList.clear();
+        studentList.addAll(list);
     }
 
-//    static {
-//        studentList.add(new Student(1, "Bùi Nam", "1990", "Nam", "C0522g1", 9));
-//        studentList.add(new Student(2, "Trần Hoàng", "1991", "Nam", "C0522g1", 8));
-//        studentList.add(new Student(3, "Lý Thị Hoa", "1992", "Nữ", "C0522g1", 7));
-//        studentList.add(new Student(4, "Trần Văn Nam", "1993", "Nam", "C0522g1", 6));
-//        studentList.add(new Student(5, "Hoàng Xuân Nam", "1994", "Nữ", "C0522g1", 5));
-//        studentList.add(new Student(6, "Vũ Tiến Nam", "1995", "Nam", "C0522g1", 4));
-//        studentList.add(new Student(7, "ĐỖ Hoàng", "1996", "Nam", "C0522g1", 3));
-//    }
+    public static void writeFile() {
+        WriteFileUtils.writeStudentFile(PATH, studentList);
+    }
 
 
     public static Student infoStudent() {
         System.out.print("Nhập id: ");
-        int id = 0;
+        int id;
         while (true) {
             try {
                 id = Integer.parseInt(scanner.nextLine());
@@ -64,7 +54,7 @@ public class StudentService  implements IStudenService {
         String gender = scanner.nextLine();
         System.out.println("Giới tính : " + gender);
         System.out.print("Nhập điểm: ");
-        double score = 0.0;
+        double score;
         while (true) {
             try {
                 score = Double.parseDouble(scanner.nextLine());
@@ -81,17 +71,19 @@ public class StudentService  implements IStudenService {
     }
 
     @Override
-    public void add() throws IOException {
+    public void add() {
+        readFile();
         Student student = infoStudent();
         studentList.add(student);
-        WriteFileUtils.writeStudentFile(PATH,studentList);
+        writeFile();
         System.out.println("Thêm mới thành công");
     }
 
     @Override
     public void remove() {
+        readFile();
         System.out.println("Mời bạn nhập ID cần xóa");
-        int idRemove = 0;
+        int idRemove;
         while (true) {
             try {
                 idRemove = Integer.parseInt(scanner.nextLine());
@@ -104,6 +96,7 @@ public class StudentService  implements IStudenService {
                         int chooseYesNo = Integer.parseInt(scanner.nextLine());
                         if (chooseYesNo == 1) {
                             studentList.remove(student);
+                            writeFile();
                             System.out.println("Xóa thành công!.");
                         }
                         isFlag = true;
@@ -124,6 +117,7 @@ public class StudentService  implements IStudenService {
 
     @Override
     public void display() {
+        readFile();
         for (Student student : studentList) {
             System.out.println(student);
         }
@@ -131,6 +125,7 @@ public class StudentService  implements IStudenService {
 
     @Override
     public void sortByName() {
+        readFile();
         boolean isSwap = true;
         for (int i = 0; i < studentList.size() && isSwap; i++) {
             isSwap = false;
@@ -147,12 +142,14 @@ public class StudentService  implements IStudenService {
                 }
             }
         }
+        writeFile();
     }
 
     @Override
     public void searchPersonById() {
+        readFile();
         System.out.println("Nhập vào mã sinh viên cần tìm");
-        int idSearch = 0;
+        int idSearch;
         while (true) {
             try {
                 idSearch = Integer.parseInt(scanner.nextLine());
@@ -170,6 +167,7 @@ public class StudentService  implements IStudenService {
 
     @Override
     public void searchPersonByName() {
+        readFile();
         System.out.println("Nhập vào tên sinh viên cần tìm");
         String nameSearch = scanner.nextLine();
         boolean flag = false;
