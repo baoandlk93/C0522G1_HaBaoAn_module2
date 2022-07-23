@@ -1,9 +1,10 @@
 package homework1.controller;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class MainController {
-    public static void mainController(){
+    public static void mainController() throws IOException {
         Scanner scanner = new Scanner(System.in);
         do {
             System.out.println("Chào mừng bạn đến với Hệ thống quản lý \n"+

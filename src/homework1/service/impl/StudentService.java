@@ -4,22 +4,35 @@ import homework1.exception.DuplicateIDException;
 import homework1.model.Student;
 
 import homework1.service.IStudenService;
+import homework1.utils.ReadFileUtils;
+import homework1.utils.WriteFileUtils;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
 
-public class StudentService implements IStudenService {
+public class StudentService  implements IStudenService {
     private static Scanner scanner = new Scanner(System.in);
-    private static List<Student> studentList = new ArrayList<>();
+    private static final String PATH ="src/homework1/list_file/person.csv";
+    private static List<Student> studentList;
 
     static {
-        studentList.add(new Student(1, "Bùi Nam", "1990", "Nam", "C0522g1", 9));
-        studentList.add(new Student(2, "Trần Hoàng", "1991", "Nam", "C0522g1", 8));
-        studentList.add(new Student(3, "Lý Thị Hoa", "1992", "Nữ", "C0522g1", 7));
-        studentList.add(new Student(4, "Trần Văn Nam", "1993", "Nam", "C0522g1", 6));
-        studentList.add(new Student(5, "Hoàng Xuân Nam", "1994", "Nữ", "C0522g1", 5));
-        studentList.add(new Student(6, "Vũ Tiến Nam", "1995", "Nam", "C0522g1", 4));
-        studentList.add(new Student(7, "ĐỖ Hoàng", "1996", "Nam", "C0522g1", 3));
+        try {
+            studentList = ReadFileUtils.readStudenList(PATH);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+//    static {
+//        studentList.add(new Student(1, "Bùi Nam", "1990", "Nam", "C0522g1", 9));
+//        studentList.add(new Student(2, "Trần Hoàng", "1991", "Nam", "C0522g1", 8));
+//        studentList.add(new Student(3, "Lý Thị Hoa", "1992", "Nữ", "C0522g1", 7));
+//        studentList.add(new Student(4, "Trần Văn Nam", "1993", "Nam", "C0522g1", 6));
+//        studentList.add(new Student(5, "Hoàng Xuân Nam", "1994", "Nữ", "C0522g1", 5));
+//        studentList.add(new Student(6, "Vũ Tiến Nam", "1995", "Nam", "C0522g1", 4));
+//        studentList.add(new Student(7, "ĐỖ Hoàng", "1996", "Nam", "C0522g1", 3));
+//    }
 
 
     public static Student infoStudent() {
@@ -68,9 +81,10 @@ public class StudentService implements IStudenService {
     }
 
     @Override
-    public void add() {
+    public void add() throws IOException {
         Student student = infoStudent();
         studentList.add(student);
+        WriteFileUtils.writeStudentFile(PATH,studentList);
         System.out.println("Thêm mới thành công");
     }
 

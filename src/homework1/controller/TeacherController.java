@@ -3,12 +3,13 @@ package homework1.controller;
 import homework1.service.IPersonService;
 import homework1.service.impl.TeacherService;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class TeacherController {
 
 
-    public static void menuTeacher() {
+    public static void menuTeacher() throws IOException {
         Scanner scanner = new Scanner(System.in);
         IPersonService iPersonService = new TeacherService();
         do {

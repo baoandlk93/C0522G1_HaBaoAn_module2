@@ -4,11 +4,12 @@ import homework1.service.IPersonService;
 import homework1.service.IStudenService;
 import homework1.service.impl.StudentService;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class StudentController {
 
-    public static void menuStudent(){
+    public static void menuStudent() throws IOException {
         Scanner scanner = new Scanner(System.in);
         IStudenService iStudenService = new StudentService();
         do {
