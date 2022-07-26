@@ -8,9 +8,48 @@ public abstract class Person {
     private int id;
     private int phoneNumber;
     private String email;
-    private String level;
+    private String literacy;
 
     public Person() {
+    }
+
+    public Person(String name) {
+        this.name = name;
+    }
+
+    public Person(String name, String dateOfBirth) {
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public Person(String name, String dateOfBirth, String gender) {
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+    }
+
+    public Person(String name, String dateOfBirth, String gender, int id) {
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+        this.id = id;
+    }
+
+    public Person(String name, String dateOfBirth, String gender, int id, int phoneNumber) {
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+        this.id = id;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Person(String name, String dateOfBirth, String gender, int id, int phoneNumber, String email) {
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+        this.id = id;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
     }
 
     public Person(String name, String dateOfBirth, String gender, int id, int phoneNumber, String email, String level) {
@@ -20,7 +59,7 @@ public abstract class Person {
         this.id = id;
         this.phoneNumber = phoneNumber;
         this.email = email;
-        this.level = level;
+        this.literacy = level;
     }
 
     public String getName() {
@@ -71,12 +110,12 @@ public abstract class Person {
         this.email = email;
     }
 
-    public String getLevel() {
-        return level;
+    public String getLiteracy() {
+        return literacy;
     }
 
-    public void setLevel(String level) {
-        this.level = level;
+    public void setLiteracy(String literacy) {
+        this.literacy = literacy;
     }
 
     @Override
@@ -88,7 +127,7 @@ public abstract class Person {
                 ", ID: " + id +
                 ", Phone Number: " + phoneNumber +
                 ", Email: " + email +
-                ", Level: " + level;
+                ", Level: " + literacy;
 
     }
 }

@@ -1,5 +1,6 @@
 package homework1.service.impl;
 
+import homework1.exception.DateFormatException;
 import homework1.exception.DuplicateIDException;
 import homework1.model.Student;
 
@@ -10,27 +11,28 @@ import homework1.utils.WriteFileUtils;
 import java.util.*;
 
 public class StudentService implements IStudenService {
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
     private static final String PATH = "src/homework1/list_file/person.csv";
     private static List<Student> studentList = new ArrayList<>();
 
-    public static void readFile() {
+
+    private static void readFile() {
         List<Student> list = ReadFileUtils.readStudenList(PATH);
         studentList.clear();
         studentList.addAll(list);
     }
 
-    public static void writeFile() {
+    private static void writeFile() {
         WriteFileUtils.writeStudentFile(PATH, studentList);
     }
 
 
-    public static Student infoStudent() {
+    private static Student infoStudent() {
         System.out.print("Nhập id: ");
         int id;
         while (true) {
             try {
-                id = Integer.parseInt(scanner.nextLine());
+                id = Integer.parseInt(SCANNER.nextLine());
                 System.out.println("ID : " + id);
                 for (Student student : studentList) {
                     if (student.getId() == id) {
@@ -44,20 +46,19 @@ public class StudentService implements IStudenService {
                 System.out.println(e.getMessage());
             }
         }
-        System.out.print("Nhập name: ");
-        String name = scanner.nextLine();
-        System.out.println("Tên sinh viên: " + name);
-        System.out.print("Nhập ngày sinh: ");
-        String dayOfBirth = scanner.nextLine();
-        System.out.println("Ngày sinh: " + dayOfBirth);
-        System.out.println("Nhập vào giới tính");
-        String gender = scanner.nextLine();
+        String name = AnyMethod.getName(SCANNER.nextLine());
+
+        String dayOfBirth = SCANNER.nextLine();
+        AnyMethod.getDayOfBirth(dayOfBirth);
+
+        String gender = AnyMethod.getGender().trim();
         System.out.println("Giới tính : " + gender);
+
         System.out.print("Nhập điểm: ");
         double score;
         while (true) {
             try {
-                score = Double.parseDouble(scanner.nextLine());
+                score = Double.parseDouble(SCANNER.nextLine());
                 System.out.println("Điểm: " + score);
                 break;
             } catch (NumberFormatException e) {
@@ -65,8 +66,9 @@ public class StudentService implements IStudenService {
             }
         }
         System.out.print("Nhập tên Lớp: ");
-        String className = scanner.nextLine();
-        System.out.println("Lớp: " + className);
+        String className = SCANNER.nextLine();
+        System.out.println("Lớp: " + className.trim());
+
         return new Student(id, name, dayOfBirth, gender, className, score);
     }
 
@@ -86,14 +88,14 @@ public class StudentService implements IStudenService {
         int idRemove;
         while (true) {
             try {
-                idRemove = Integer.parseInt(scanner.nextLine());
+                idRemove = Integer.parseInt(SCANNER.nextLine());
                 boolean isFlag = false;
                 for (Student student : studentList) {
                     if (student.getId() == idRemove) {
                         System.out.println(" Bạn có chắc muốn xóa hay không? \n" +
                                 "1. Có \n" +
                                 "2. Không");
-                        int chooseYesNo = Integer.parseInt(scanner.nextLine());
+                        int chooseYesNo = Integer.parseInt(SCANNER.nextLine());
                         if (chooseYesNo == 1) {
                             studentList.remove(student);
                             writeFile();
@@ -152,7 +154,7 @@ public class StudentService implements IStudenService {
         int idSearch;
         while (true) {
             try {
-                idSearch = Integer.parseInt(scanner.nextLine());
+                idSearch = Integer.parseInt(SCANNER.nextLine());
                 for (Student str : studentList) {
                     if (idSearch == str.getId()) {
                         System.out.println(str);
@@ -169,7 +171,7 @@ public class StudentService implements IStudenService {
     public void searchPersonByName() {
         readFile();
         System.out.println("Nhập vào tên sinh viên cần tìm");
-        String nameSearch = scanner.nextLine();
+        String nameSearch = SCANNER.nextLine();
         boolean flag = false;
         for (Student str : studentList) {
             if (str.getName().toLowerCase().contains(nameSearch.toLowerCase())) {
@@ -181,6 +183,6 @@ public class StudentService implements IStudenService {
             System.out.println("Không tìm thấy");
         }
     }
-
-
 }
+
+

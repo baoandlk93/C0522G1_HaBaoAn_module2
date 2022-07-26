@@ -15,6 +15,5 @@ public class ContactService implements IContactService {
 
     @Override
     public void edit() {
-
     }
 }
