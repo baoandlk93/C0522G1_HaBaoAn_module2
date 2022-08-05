@@ -7,10 +7,10 @@ public class PromotionManagement {
 
     public static void menuPromotion() {
         do {
-            System.out.println("Welcom to Promotion Management \n" +
-                    "1.\tDisplay list customers use service \n" +
-                    "2.\tDisplay list customers get voucher \n" +
-                    "3.\tReturn main menu");
+            System.out.println("Chào mừng bạn đến với hệ thống quản lý thành viên \n" +
+                    "1.\tHiển thị danh sách khách hàng sử dụng dịch vụ \n" +
+                    "2.\tHiển thị danh sách khách hàng nhận được voucher \n" +
+                    "3.\tTrở lại menu chính");
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
                 case 1:

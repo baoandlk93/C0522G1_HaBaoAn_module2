@@ -5,61 +5,26 @@ public abstract class Person {
     private String name;
     private String dateOfBirth;
     private String gender;
-    private int id;
-    private int phoneNumber;
+    private long id;
+    private long phoneNumber;
     private String email;
-    private String literacy;
+
 
     public Person() {
     }
 
-    public Person(String name) {
-        this.name = name;
-    }
-
-    public Person(String name, String dateOfBirth) {
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public Person(String name, String dateOfBirth, String gender) {
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this.gender = gender;
-    }
-
-    public Person(String name, String dateOfBirth, String gender, int id) {
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this.gender = gender;
-        this.id = id;
-    }
-
-    public Person(String name, String dateOfBirth, String gender, int id, int phoneNumber) {
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this.gender = gender;
-        this.id = id;
-        this.phoneNumber = phoneNumber;
-    }
-
-    public Person(String name, String dateOfBirth, String gender, int id, int phoneNumber, String email) {
+    public Person(String name,
+                  String dateOfBirth,
+                  String gender,
+                  long id,
+                  long phoneNumber,
+                  String email) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
         this.id = id;
         this.phoneNumber = phoneNumber;
         this.email = email;
-    }
-
-    public Person(String name, String dateOfBirth, String gender, int id, int phoneNumber, String email, String level) {
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this.gender = gender;
-        this.id = id;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.literacy = level;
     }
 
     public String getName() {
@@ -86,15 +51,15 @@ public abstract class Person {
         this.gender = gender;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public int getPhoneNumber() {
+    public long getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -110,24 +75,16 @@ public abstract class Person {
         this.email = email;
     }
 
-    public String getLiteracy() {
-        return literacy;
-    }
-
-    public void setLiteracy(String literacy) {
-        this.literacy = literacy;
-    }
 
     @Override
     public String toString() {
         return
-                "Name; " + name +
-                ", Date Of Birth: " + dateOfBirth +
-                ", Gender: " + gender +
-                ", ID: " + id +
-                ", Phone Number: " + phoneNumber +
-                ", Email: " + email +
-                ", Level: " + literacy;
+                " Tên:  " + name + "," +
+                        " Ngày sinh:  " + dateOfBirth + "," +
+                        " Giới tính: " + gender + "," +
+                        " CMND/Căn cước: " + id + "," +
+                        " Số điện thoại: " + phoneNumber + "," +
+                        " Email: " + email + "+";
 
     }
 }

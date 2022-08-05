@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-public class WriterUtils {
+public class WriteEmployeeUtils {
     private static void writeFile(String path, String data) {
         try {
             File file = new File(path);
@@ -27,4 +27,6 @@ public class WriterUtils {
         }
         writeFile(path, data.toString());
     }
+
+
 }

@@ -7,13 +7,13 @@ public class BookingManagerment {
 
     public static void displayBooking() {
         do {
-            System.out.println("Welcom to Booking Management \n" +
-                    "1.\tAdd new booking \n" +
-                    "2.\tDisplay list booking \n" +
-                    "3.\tCreate new constracts \n" +
-                    "4.\tDisplay list contracts \n" +
-                    "5.\tEdit contracts \n" +
-                    "6.\tReturn main menu ");
+            System.out.println("Chào mừng bạn đến với hệ thống Quản lý đặt chỗ \n" +
+                    "1.\tĐặt chỗ mới \n" +
+                    "2.\tHiển thị danh sách đặt chỗ \n" +
+                    "3.\tTạo hợp đồng mới \n" +
+                    "4.\tHiển thị danh sách hợp đồng  \n" +
+                    "5.\tChính sửa hợp đồng \n" +
+                    "6.\tTrở lại menu chính ");
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
                 case 1:

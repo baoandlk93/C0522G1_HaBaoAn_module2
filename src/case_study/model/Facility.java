@@ -2,6 +2,7 @@ package case_study.model;
 
 public abstract class Facility {
     private String name;
+    private String serviceID;
     private double area;
     private double rentalCost;
     private int maxNumberOfPeople;
@@ -10,8 +11,9 @@ public abstract class Facility {
     public Facility() {
     }
 
-    public Facility(String name, double area, double rentalCost, int maxNumberOfPeople, String rentalType) {
+    public Facility( String serviceID,String name, double area, double rentalCost, int maxNumberOfPeople, String rentalType) {
         this.name = name;
+        this.serviceID = serviceID;
         this.area = area;
         this.rentalCost = rentalCost;
         this.maxNumberOfPeople = maxNumberOfPeople;
@@ -24,6 +26,14 @@ public abstract class Facility {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getServiceID() {
+        return serviceID;
+    }
+
+    public void setServiceID(String serviceID) {
+        this.serviceID = serviceID;
     }
 
     public double getArea() {
@@ -58,14 +68,15 @@ public abstract class Facility {
         this.rentalType = rentalType;
     }
 
+    public abstract String getInfo();
+
     @Override
     public String toString() {
-        return
-                "Name = " + name +
-                ", Area = " + area +
-                ", RentalCost = " + rentalCost +
-                ", MaxNumberOfPeople = " + maxNumberOfPeople +
-                ", RentalType = " + rentalType ;
-
+        return " Mã dịch vụ: " + serviceID +
+                "Tên dịch vụ: " + name + '\'' +
+                " Diện tích sử dụng: " + area +
+                " Chi phí thuê: " + rentalCost +
+                " Số lượng người tối đa: " + maxNumberOfPeople +
+                " Kiểu thuê: '" + rentalType;
     }
 }

@@ -2,38 +2,40 @@ package case_study.model.person;
 
 public class Employee extends Person {
     private String employeeCode;
+    private String literacy;
     private String position;
-    private int salary;
+    private long salary;
 
     public Employee() {
     }
 
-    public Employee(String employeeCode, String position, int salary) {
-        this.employeeCode = employeeCode;
-        this.position = position;
+    public String getLiteracy() {
+        return literacy;
+    }
+
+    public void setLiteracy(String literacy) {
+        this.literacy = literacy;
+    }
+
+    public void setSalary(long salary) {
         this.salary = salary;
     }
 
-    public Employee(String name, String dateOfBirth, String gender, int id, int phoneNumber, String email, String level) {
-        super(name, dateOfBirth, gender, id, phoneNumber, email, level);
-    }
-
-    public Employee(String employeeCode, String name ) {
-        super(name);
-        this.employeeCode = employeeCode;
-    }
-
-    public Employee(String employeeCode,String name, String dateOfBirth) {
-        super(name, dateOfBirth);
-        this.employeeCode = employeeCode;
-    }
-
-
-    public Employee(String employeeCode, String name, String dateOfBirth, String gender, int id, int phoneNumber, String email, String level, String position, int salary) {
-        super(name, dateOfBirth, gender, id, phoneNumber, email, level);
+    public Employee(String employeeCode,
+                    String name,
+                    String dateOfBirth,
+                    String gender,
+                    long id,
+                    int phoneNumber,
+                    String email,
+                    String literacy,
+                    String position,
+                    long salary) {
+        super(name, dateOfBirth, gender, id, phoneNumber, email);
         this.employeeCode = employeeCode;
         this.position = position;
         this.salary = salary;
+        this.literacy = literacy;
     }
 
     public String getEmployeeCode() {
@@ -52,7 +54,7 @@ public class Employee extends Person {
         this.position = position;
     }
 
-    public int getSalary() {
+    public long getSalary() {
         return salary;
     }
 
@@ -60,26 +62,29 @@ public class Employee extends Person {
         this.salary = salary;
     }
 
+
     public String getInfo() {
         return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n",
-                this.getEmployeeCode(),
-                this.getName(),
-                this.getDateOfBirth(),
-                this.getGender(),
-                this.getId(),
-                this.getPhoneNumber(),
-                this.getEmail(),
-                this.getLiteracy(),
-                this.getPosition(),
-                this.getSalary());
+                getEmployeeCode(),
+                getName(),
+                getDateOfBirth(),
+                getGender(),
+                getId(),
+                getPhoneNumber(),
+                getEmail(),
+                getLiteracy(),
+                getPosition(),
+                getSalary());
     }
-
 
     @Override
     public String toString() {
-        return "Employee Code: " + employeeCode +
-                super.toString() +
-                ", Position: " + position + '\'' +
-                ", Salary: " + salary;
+        return " Mã nhân viên: " + employeeCode + "," +
+                super.toString() + "," +
+                " Trình độ: " + literacy + "," +
+                " Chức Vụ: " + position + "," +
+                " Lương: " + salary;
     }
+
+
 }

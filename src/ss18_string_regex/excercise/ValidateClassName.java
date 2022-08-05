@@ -1,6 +1,9 @@
 package ss18_string_regex.excercise;
 
 
+import ss10_dsa_list.excercise.method_arraylist.model.Person;
+import ss10_dsa_list.excercise.method_arraylist.model.Student;
+
 import java.util.Scanner;
 import java.util.regex.PatternSyntaxException;
 

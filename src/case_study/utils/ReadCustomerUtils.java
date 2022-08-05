@@ -1,18 +1,18 @@
 package case_study.utils;
 
+import case_study.model.person.Customer;
 import case_study.model.person.Employee;
-import homework1.model.Student;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
-public class ReadUtils {
+public class ReadCustomerUtils {
     private static List<String> readFile(String path) {
-        List<String> strings = new ArrayList<>();
+        List<String> strings = new LinkedList<>();
         try {
             File file = new File(path);
             FileReader fileReader = new FileReader(file);
@@ -31,14 +31,14 @@ public class ReadUtils {
 
         return strings;
     }
-    public static List<Employee> readEmployeeList(String path) {
+    public static List<Customer> readCustomerList(String path) {
         List<String> strings = readFile(path);
-        List<Employee> employeeList = new ArrayList<>();
+        List<Customer> customerList = new LinkedList<>();
         String[] info;
         for (String str : strings) {
             info = str.split(",");
-            employeeList.add(new Employee(info[0], info[1], info[2], info[3], Integer.parseInt(info[4]), Integer.parseInt(info[5]),info[6],info[7],info[8],Integer.parseInt(info[9])));
+            customerList.add(new Customer(info[0], info[1], info[2], info[3], Long.parseLong(info[4]),Integer.parseInt(info[5]),info[6],info[7],info[8]));
         }
-        return employeeList;
+        return customerList;
     }
 }

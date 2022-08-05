@@ -1,13 +1,31 @@
 package case_study.model;
 
-public class Room extends Facility{
+public class Room extends Facility {
     private String freeService;
 
     public Room() {
     }
 
-    public Room(String name, double area, double rentalCost, int maxNumberOfPeople, String rentalType, String freeService) {
-        super(name, area, rentalCost, maxNumberOfPeople, rentalType);
+    @Override
+    public String getInfo() {
+        return String.format("%s,%s,%s,%s,%s,%s,%s",
+                getServiceID(),
+                getName(),
+                getArea(),
+                getRentalCost(),
+                getMaxNumberOfPeople(),
+                getRentalType(),
+                getFreeService());
+    }
+
+    public Room(String serviceID,
+                String name,
+                double area,
+                double rentalCost,
+                int maxNumberOfPeople,
+                String rentalType,
+                String freeService) {
+        super(name, serviceID, area, rentalCost, maxNumberOfPeople, rentalType);
         this.freeService = freeService;
     }
 
@@ -21,7 +39,8 @@ public class Room extends Facility{
 
     @Override
     public String toString() {
-        return "Room: " + super.toString() +
-                ", Free Service = " + freeService;
+        return " Phòng: " +
+                super.toString() +
+                " Dịch vụ miễn phí đi kèm: " + freeService;
     }
 }
