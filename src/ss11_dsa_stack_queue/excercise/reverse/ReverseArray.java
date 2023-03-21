@@ -16,14 +16,14 @@ public class ReverseArray {
         for (int i = 0; i < integer.length; i++) {
             integer[i] = (int) (1 + Math.random() * 20);
         }
-        System.out.println("Mảng đã tạo: " +Arrays.toString(integer));
+        System.out.println("Mảng đã tạo: " + Arrays.toString(integer));
         Stack<Integer> integerStack = new Stack<>();
 
         for (int k : integer) {
             integerStack.push(k);
         }
 
-        for (int i=0;i<integer.length;i++){
+        for (int i = 0; i < integer.length; i++) {
             integer[i] = integerStack.pop();
         }
         System.out.println("Mảng đảo ngược: " + Arrays.toString(integer));

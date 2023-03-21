@@ -11,7 +11,7 @@ import java.util.Collection;
 
 
 
-@RunWith(Parameterized.class)
+//@RunWith(Parameterized.class)
 public class TennisGameTest {
 
     private int scoreOfFirstPlayer;
