@@ -12,7 +12,7 @@ public class ReveserString {
         for (int i = 0; i < str.length(); i++) {
             stringStack.push(str.charAt(i));
         }
-        for (int i = 0;i<str.length();i++){
+        for (int i = 0; i < str.length(); i++) {
             System.out.print(stringStack.pop());
         }
     }
