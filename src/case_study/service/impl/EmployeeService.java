@@ -92,7 +92,7 @@ public class EmployeeService implements IEmployeeService {
             try {
                 System.out.println("Nhập vào mã nhân viên");
                 employeeCode = scanner.nextLine();
-                if (employeeCode.matches("$(NV\\d{4})$")) {
+                if (employeeCode.matches("^(NV\\d{4})$")) {
                     for (Employee employee : list) {
                         if (employee.getEmployeeCode().equals(employeeCode)) {
                             throw new DuplicateIDException("Mã nhân viên đã có vui lòng nhập lại");

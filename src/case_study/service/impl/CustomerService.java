@@ -8,10 +8,7 @@ import case_study.utils.ReadCustomerUtils;
 import case_study.utils.WriteCustomerUtils;
 
 import java.text.*;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.regex.PatternSyntaxException;
 
 public class CustomerService implements ICustomerService {
@@ -59,24 +56,27 @@ public class CustomerService implements ICustomerService {
         String dayOfBirth;
         do {
             Date date = new Date();
-            DateFormat dateFormat = new SimpleDateFormat();
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             double age;
             try {
-               dayOfBirth =scanner.nextLine();
-             if (dayOfBirth.matches("\\d{1,2}[-|/]\\d{1,2}[-|/]\\d{4}")) {
-                 age = (date.getTime() -dateFormat.parse(dayOfBirth).getTime())/315576E5;
-                 if (age<18|age>100 ){
-                     throw new AgeInvalidException("Khách hàng phải trên 18 tuổi và không quá 100 tuổi");
-                 }
-                 System.out.println("Ngày sinh " +dayOfBirth);
-                 break;
-             }
+                dayOfBirth = scanner.nextLine();
+                if (dayOfBirth.matches("^(((0[1-9]|[12][0-9]|30)[-/](0[13-9]|1[012])|31[-/]" +
+                        "(0[13578]|1[02])|(0[1-9]|1[0-9]|2[0-8])[-/]02)[-/][0-9]{4}|29[-/]02" +
+                        "[-/]([0-9]{2}(([2468][048]|[02468][48])|[13579][26])|([13579][26]|[02468]" +
+                        "[048]|0[0-9]|1[0-6])00))$")) {
+                    age = (date.getTime() - dateFormat.parse(dayOfBirth).getTime()) / 315576E5;
+                    if (age < 18 | age > 100) {
+                        throw new AgeInvalidException("Khách hàng phải trên 18 tuổi và không quá 100 tuổi");
+                    }
+                    System.out.println("Ngày sinh " + dayOfBirth);
+                    break;
+                }
                 System.out.println("Vui lòng nhập đúng định dạng dd/mm/yyyy");
-            }catch (PatternSyntaxException | ParseException | AgeInvalidException e){
+            } catch (PatternSyntaxException | ParseException | AgeInvalidException e) {
                 e.printStackTrace();
                 System.out.println(e.getMessage());
             }
-        }while (true);
+        } while (true);
 
         String gender = getGender();
 
